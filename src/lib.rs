@@ -1,3 +1,8 @@
+//! <a href="https://github.com/Nercury/android_looper-rs">
+//! <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub">
+//! </a>
+//! <style>.sidebar { margin-top: 53px }</style>
+//!
 //! From [android docs](http://developer.android.com/reference/android/os/Looper.html):
 //!
 //! > Class used to run a message loop for a thread. Threads by default do not have a message loop
