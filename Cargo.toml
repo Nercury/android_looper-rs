@@ -1,0 +1,19 @@
+[package]
+name = "android_looper"
+version = "0.1.0"
+authors = [
+    "The android_looper Developers",
+]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/nercury/android_looper-rs"
+documentation = "http://nercury.github.io/android_looper-rs/android_looper/index.html"
+description = """
+Thin wrapper for Android Looper.
+"""
+
+[dependencies.android_looper-sys]
+version = "0.1"
+
+[dependencies.libc]
+version = "0.2"
