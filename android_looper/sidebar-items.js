@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["LooperPrepareOpts","Option for for `ALooper_prepare()`."]],"mod":[["error","Looper Error and Result."]],"struct":[["AcquiredLooper","`RAII` acquired looper wrapper."],["LooperRef","Reference to a looper."]],"type":[["LooperHandle",""]]});

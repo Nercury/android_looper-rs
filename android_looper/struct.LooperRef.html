@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `LooperRef` struct in crate `android_looper`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, LooperRef">
+
+    <title>android_looper::LooperRef - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>android_looper</a></p><script>window.sidebarCurrent = {name: 'LooperRef', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>android_looper</a>::<wbr><a class='struct' href=''>LooperRef</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-27' class='srclink' href='../src/android_looper/src/lib.rs.html#75-77' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct LooperRef {
+    // some fields omitted
+}</pre><div class='docblock'><p>Reference to a looper.</p>
+
+<p>From <a href="http://developer.android.com/ndk/reference/group___looper.html">NDK docs</a>:</p>
+
+<blockquote>
+<p>A looper is the state tracking an event loop for a thread.
+Loopers do not define event structures or other such things;
+rather they are a lower-level facility to attach one or more discrete objects listening for an
+event. An &quot;event&quot; here is simply data available on a file descriptor: each attached object has
+an associated file descriptor, and waiting for &quot;events&quot; means (internally) polling on all of
+these file descriptors until one or more of them have data available.</p>
+
+<p>A thread can have only one Looper associated with it.</p>
+</blockquote>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a></code></h3><div class='impl-items'><h4 id='method.from_handle' class='method'><code>fn <a href='#method.from_handle' class='fnname'>from_handle</a>(handle: <a class='type' href='../android_looper/type.LooperHandle.html' title='android_looper::LooperHandle'>LooperHandle</a>) -&gt; <a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a></code></h4>
+<div class='docblock'><p>Create <code>LooperRef</code> from native handle.</p>
+</div><h4 id='method.prepare' class='method'><code>fn <a href='#method.prepare' class='fnname'>prepare</a>(opts: <a class='enum' href='../android_looper/enum.LooperPrepareOpts.html' title='android_looper::LooperPrepareOpts'>LooperPrepareOpts</a>) -&gt; <a class='type' href='../android_looper/error/type.Result.html' title='android_looper::error::Result'>Result</a>&lt;<a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a>&gt;</code></h4>
+<div class='docblock'><p>Prepares a looper associated with the calling thread, and returns it.
+If the thread already has a looper, it is returned. Otherwise, a new one is created,
+associated with the thread, and returned.</p>
+</div><h4 id='method.acquire' class='method'><code>fn <a href='#method.acquire' class='fnname'>acquire</a>(&amp;self) -&gt; <a class='struct' href='../android_looper/struct.AcquiredLooper.html' title='android_looper::AcquiredLooper'>AcquiredLooper</a></code></h4>
+<div class='docblock'><p>Acquire looper to prevent its deletion until <code>AcquiredLooper</code> object is dropped.</p>
+</div><h4 id='method.handle' class='method'><code>fn <a href='#method.handle' class='fnname'>handle</a>(&amp;self) -&gt; <a class='type' href='../android_looper/type.LooperHandle.html' title='android_looper::LooperHandle'>LooperHandle</a></code></h4>
+<div class='docblock'><p>Get native looper handle.</p>
+</div><h4 id='method.poll_all_blind' class='method'><code>fn <a href='#method.poll_all_blind' class='fnname'>poll_all_blind</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Performs all pending callbacks until all data has been consumed.</p>
+
+<p>Calls <code>ALooper_pollAll(0, NULL, NULL, NULL)</code>.
+This method is unstable and may be removed in favor of better version.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><span class="since">1.0.0</span></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../android_looper/struct.LooperRef.html' title='android_looper::LooperRef'>LooperRef</a></code></h3><div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "android_looper";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
